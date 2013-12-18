@@ -1,9 +1,8 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :book do
-    title "Perks of Being A Wallflower"
-    author "That Guy"
-    rating 84
+  factory :categorization do
+    book_id 1
+    category_id 1
   end
 end
