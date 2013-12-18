@@ -27,4 +27,32 @@ module Seeders
 
     end
   end
+
+  module Categories
+    class << self
+      def seed
+        categories.each do |name|
+          Category.find_or_initialize_by(name: name) do |cat|
+            cat.name = name
+            cat.save!
+          end
+        end
+
+      end
+
+      def categories
+        ["History",
+         "Children",
+         "Fiction",
+         "Nonfiction",
+         "Historical",
+         "Fantasy",
+         "Science Fiction"
+        ]
+
+      end
+
+
+    end
+  end
 end

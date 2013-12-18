@@ -16,3 +16,20 @@ describe Seeders::Books do
     expect(Book.count).to eql(pre_count)
   end
 end
+
+describe Seeders::Categories do
+  let(:seeder) {Seeders::Categories}
+
+  it 'seeds books' do
+    seeded_cat = Seeders::Categories.categories.first
+    seeder.seed
+    expect(Category.where(name: seeded_cat)).to be_present
+  end
+
+  it 'does not create duplicates' do
+    seeder.seed
+    pre_count = Category.count
+    seeder.seed
+    expect(Category.count).to eql(pre_count)
+  end
+end
