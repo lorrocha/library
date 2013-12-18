@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Checkout do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should validate_presence_of :book_id }
+  it { should validate_presence_of :reader }
+
+  it { should belong_to :book }
 end
